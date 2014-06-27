@@ -1,0 +1,19 @@
+- job:
+    name: 'jobs-builder'
+    description: 'Configure Jenkins jobs with YAML files'
+    project-type: freestyle
+    wrappers:
+      - ansicolor:
+          colormap: xterm
+    scm:
+      - git:
+          skip-tag: false
+          url: /etc/jenkins_jobs
+          wipe-workspace: false
+          branches:
+            - master
+    triggers:
+      - pollscm: 'H/5 * * * *'
+    builders:
+      - shell: |
+          /opt/jenkins-job-builder/jenkins_jobs/cmd.py update --delete-old /etc/jenkins_jobs/jobs
