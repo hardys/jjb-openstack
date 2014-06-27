@@ -8,7 +8,7 @@
     builders:
       - shell: |
           set +e
-          configure.sh
+          sudo -i configure.sh
           ret=$?
           cp /tmp/*.xml .
           exit $ret
