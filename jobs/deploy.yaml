@@ -1,0 +1,17 @@
+- job:
+    name: 'puppet'
+    description: 'Configure the systems using puppet'
+    project-type: freestyle
+    wrappers:
+      - ansicolor:
+          colormap: xterm
+    builders:
+      - shell: |
+          set +e
+          configure.sh
+          ret=$?
+          cp /tmp/*.xml .
+          exit $ret
+    publishers:
+      - junit:
+          results: '*.xml'
