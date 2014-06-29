@@ -8,6 +8,8 @@
     builders:
       - shell: |
           set +e
+          ~/smoke/smoke-initialize.sh
+          ~/smoke/smoke-validate.sh
           sudo -i ~/build_tempest/setup-tempest.sh
           sudo -i ~/build_tempest/configure-tempest.sh -a
           sudo -i ~/build_tempest/run-tempest.sh -a -v icehouse -p spinal-stack
