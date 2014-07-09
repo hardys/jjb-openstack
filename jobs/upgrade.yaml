@@ -9,7 +9,7 @@
       - shell: |
           set +e
           sudo -i ansible-playbook -s -M /srv/edeploy/ansible/library /etc/ansible/site.yml -v --tags "before_config"
-          echo '1' | sudo tee /etc/config-tools/step
+          echo '0' | sudo tee /etc/config-tools/step
           sudo configure.sh
           sudo -i ansible-playbook -s -M /srv/edeploy/ansible/library /etc/ansible/site.yml -v --tags "after_config"
           ret=$?
