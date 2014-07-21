@@ -1,0 +1,10 @@
+- job:
+    name: 'edeploy'
+    description: 'Provision bare-metal systems via eDeploy'
+    project-type: freestyle
+    wrappers:
+      - ansicolor:
+          colormap: xterm
+    builders:
+      - shell: |
+          sudo -i edeploy-nodes.sh
