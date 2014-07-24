@@ -1,0 +1,10 @@
+- job:
+    name: 'health-check'
+    description: 'Benchmark bare-metal systems via eDeploy AHC'
+    project-type: freestyle
+    wrappers:
+      - ansicolor:
+          colormap: xterm
+    builders:
+      - shell: |
+          sudo -i health-check.sh
