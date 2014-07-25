@@ -7,4 +7,4 @@
           colormap: xterm
     builders:
       - shell: |
-          sudo -i health-check.sh
+          health-check.sh
