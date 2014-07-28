@@ -8,3 +8,6 @@
     builders:
       - shell: |
           edeploy-nodes.sh
+    publishers:
+      - archive:
+          artifacts: '*.log*, *.hw'
