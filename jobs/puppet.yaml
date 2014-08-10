@@ -10,8 +10,10 @@
           set +e
           configure.sh
           ret=$?
-          cp /tmp/*.xml .
+          cp /tmp/*.xml /tmp/*.log .
           exit $ret
     publishers:
       - junit:
           results: '*.xml'
+      - archive:
+          artifacts: '*.log'
