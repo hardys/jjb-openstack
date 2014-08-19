@@ -8,8 +8,8 @@
     builders:
       - shell: |
           set +e
-          cp /etc/config-tools/openrc.sh ./smoke
-          cp /etc/config-tools/openrc.sh ./build_tempest
+          cp /etc/config-tools/openrc.sh ./smoke/
+          cp /etc/config-tools/openrc.sh ./build_tempest/
           ./smoke/smoke-initialize.sh
           ./smoke/smoke-validate.sh
           sudo -i ./build_tempest/setup-tempest.sh
