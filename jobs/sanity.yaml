@@ -12,9 +12,9 @@
           cp /etc/config-tools/openrc.sh ./build_tempest/
           ./smoke/smoke-initialize.sh
           ./smoke/smoke-validate.sh
-          sudo -i ./build_tempest/setup-tempest.sh
-          sudo -i ./build_tempest/configure-tempest.sh -a
-          sudo -i ./build_tempest/run-tempest.sh -a -v icehouse -p spinal-stack
+          ./build_tempest/setup-tempest.sh
+          ./build_tempest/configure-tempest.sh -a
+          ./build_tempest/run-tempest.sh -a -v icehouse -p spinal-stack
           ret=$?
           cp ~/build_tempest/tempest/*tempest_xunit.xml .
           exit $ret
