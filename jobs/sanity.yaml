@@ -16,8 +16,8 @@
           ./build_tempest/configure-tempest.sh -a
           ./build_tempest/run-tempest.sh -a -v icehouse -p spinal-stack
           ret=$?
-          cp ~/build_tempest/tempest/*tempest_xunit.xml .
+          cp ./build_tempest/tempest/tempest_xunit.xml .
           exit $ret
     publishers:
       - junit:
-          results: '*tempest_xunit.xml'
+          results: 'tempest_xunit.xml'
