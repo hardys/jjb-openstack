@@ -14,10 +14,18 @@
           ./smoke/smoke-validate.sh
           ./build_tempest/setup-tempest.sh
           ./build_tempest/configure-tempest.sh -a
+
+          ./launch-monitoring-checks.sh
+          ret=$(($? + $ret))
+          # TODO(sileht): Remove this once the monitoring-checks
+          # is ready and well tested
+          ret=0
+
           ./build_tempest/run-tempest.sh -a -v icehouse -p spinal-stack
-          ret=$?
+          ret=$(($? + $ret))
           cp ./build_tempest/tempest/tempest_xunit.xml .
+
           exit $ret
     publishers:
       - junit:
-          results: 'tempest_xunit.xml'
+          results: '*_xunit.xml'
