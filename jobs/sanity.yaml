@@ -8,6 +8,7 @@
     builders:
       - shell: |
           set +e
+          cd /var/lib/jenkins/workspace/sanity
           cp /etc/config-tools/openrc.sh ./smoke/
           cp /etc/config-tools/openrc.sh ./build_tempest/
           ./smoke/smoke-initialize.sh
