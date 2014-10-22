@@ -16,4 +16,4 @@
       - pollscm: 'H/5 * * * *'
     builders:
       - shell: |
-          PBR_VERSION=jjb /opt/jenkins-job-builder/jenkins_jobs/cmd.py update --delete-old /etc/jenkins_jobs/jobs
+          /opt/jenkins-job-builder/jenkins_jobs/cmd.py update --delete-old /etc/jenkins_jobs/jobs
