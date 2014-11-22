@@ -8,22 +8,19 @@
     builders:
       - shell: |
           set +e
-          cd /var/lib/jenkins/jobs/sanity/workspace
-          cp /etc/config-tools/openrc.sh ./smoke/
-          cp /etc/config-tools/openrc.sh ./build_tempest/
-          ./smoke/smoke-initialize.sh
-          ./smoke/smoke-validate.sh
-          ./build_tempest/configure-tempest.sh -a
+          # TODO (EmilienM) Need to be moved in config-tools & tempest
+          # (Work in progress)
+          # cd /var/lib/jenkins/jobs/sanity/workspace
+          # cp /etc/config-tools/openrc.sh ./smoke/
+          # ./smoke/smoke-initialize.sh
+          # ./smoke/smoke-validate.sh
+          # ./launch-monitoring-checks.sh
+          # ret=$?
 
-          ./launch-monitoring-checks.sh
-          ret=$?
-          # TODO(sileht): Remove this once the monitoring-checks
-          # is ready and well tested
-          ret=0
-
-          ./build_tempest/run-tempest.sh -v icehouse -p spinal-stack
+          sudo /opt/tempest-scripts/configure-tempest.sh -a
+          sudo /opt/tempest-scripts/run-tempest.sh -v icehouse -p spinal-stack
           ret=$(($? + $ret))
-          cp ./build_tempest/tempest/tempest_xunit.xml .
+          sudo mv /usr/share/openstack-tempest-icehouse/tempest_xunit.xml .
 
           exit $ret
     publishers:
