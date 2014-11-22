@@ -21,7 +21,7 @@
           # is ready and well tested
           ret=0
 
-          ./build_tempest/run-tempest.sh -a -v icehouse -p spinal-stack
+          ./build_tempest/run-tempest.sh -v icehouse -p spinal-stack
           ret=$(($? + $ret))
           cp ./build_tempest/tempest/tempest_xunit.xml .
 
