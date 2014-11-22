@@ -13,7 +13,6 @@
           cp /etc/config-tools/openrc.sh ./build_tempest/
           ./smoke/smoke-initialize.sh
           ./smoke/smoke-validate.sh
-          ./build_tempest/setup-tempest.sh
           ./build_tempest/configure-tempest.sh -a
 
           ./launch-monitoring-checks.sh
