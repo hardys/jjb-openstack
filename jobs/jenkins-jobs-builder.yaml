@@ -16,4 +16,9 @@
       - pollscm: 'H/5 * * * *'
     builders:
       - shell: |
-          /opt/jenkins-job-builder/jenkins_jobs/cmd.py update --delete-old /etc/jenkins_jobs/jobs
+          #!/bin/bash
+          if [ -x /opt/jenkins-job-builder/jenkins_jobs/cmd.py ]; then
+              jjb=/opt/jenkins-job-builder/jenkins_jobs/cmd.py
+          else
+              jjb=jenkins-jobs
+          fi
