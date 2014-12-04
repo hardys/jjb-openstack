@@ -22,3 +22,4 @@
           else
               jjb=jenkins-jobs
           fi
+          $jjb update --delete-old /etc/jenkins_jobs/jobs
