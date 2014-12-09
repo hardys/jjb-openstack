@@ -17,8 +17,8 @@
           # ret=$?
           cd /var/lib/jenkins/jobs/sanity/workspace
           ./build_tempest/setup-tempest.sh
-          ./configure-tempest.sh -a
-          ./run-tempest.sh -v icehouse -p spinal-stack
+          ./build_tempest/configure-tempest.sh -a
+          ./build_tempest/run-tempest.sh -v icehouse -p spinal-stack
           ret=$(($? + $ret))
           cp ./build_tempest/tempest/tempest_xunit.xml .
 
