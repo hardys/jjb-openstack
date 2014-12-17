@@ -1,0 +1,10 @@
+- job:
+    name: 'instack-test-overcloud'
+    description: 'Test deployed overcloud using instack-test-overcloud'
+    project-type: freestyle
+    wrappers:
+      - ansicolor:
+          colormap: xterm
+    builders:
+      - shell: |
+          sudo su -c 'cd; . stackrc; instack-test-overcloud' stack

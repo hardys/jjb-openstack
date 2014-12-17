@@ -1,0 +1,10 @@
+- job:
+    name: 'instack-delete-overcloud'
+    description: 'Delete overcloud using instack-delete-overcloud'
+    project-type: freestyle
+    wrappers:
+      - ansicolor:
+          colormap: xterm
+    builders:
+      - shell: |
+          sudo su -c 'cd; . stackrc; instack-delete-overcloud' stack

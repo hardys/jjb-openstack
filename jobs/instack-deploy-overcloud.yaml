@@ -1,0 +1,10 @@
+- job:
+    name: 'instack-deploy-overcloud'
+    description: 'Deploy an overcloud using instack-deploy-overcloud'
+    project-type: freestyle
+    wrappers:
+      - ansicolor:
+          colormap: xterm
+    builders:
+      - shell: |
+          sudo su -c 'cd; . stackrc; . deploy-overcloudrc; export NODES_JSON=~/instackenv.json; instack-deploy-overcloud' stack
